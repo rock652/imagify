@@ -1,9 +1,16 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { motion } from "motion/react";
 
 const Header = () => {
   return (
-    <div className="flex flex-col justify-center items-center text-center my-20">
+    <motion.div
+      initial={{ opacity: 0.2, y: 100 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex flex-col justify-center items-center text-center my-20"
+    >
       <div
         className="text-stone-500 inline-flex text-center gap-2 bg-white px-6 rounded-full border border-e-neutral-500
       "
@@ -39,7 +46,7 @@ const Header = () => {
       </div>
 
       <p className="mt-2 text-neutral-600">Generated Image from imgify</p>
-    </div>
+    </motion.div>
   );
 };
 
