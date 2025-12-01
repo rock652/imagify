@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
+import { motion } from "motion/react";
 
 const Result = () => {
   const [image, setImage] = useState(assets.sample_img_1);
@@ -7,7 +8,13 @@ const Result = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <form className="flex flex-col min-h-[90vh] items-center">
+    <motion.form
+      initial={{ opacity: 0.2, y: 100 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex flex-col min-h-[90vh] items-center"
+    >
       <div>
         <div className="relative">
           <img src={image} alt="" className="max-w-sm rounded" />
@@ -51,7 +58,7 @@ const Result = () => {
           </a>
         </div>
       )}
-    </form>
+    </motion.form>
   );
 };
 
